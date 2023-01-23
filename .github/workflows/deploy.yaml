@@ -11,10 +11,10 @@ jobs:
         working-directory: ./worker
     steps:
       - uses: actions/checkout@v2.0.0
+      - name: install wrangler
+        run: 'yarn global add wrangler'
       - name: install dependencies
         run: 'yarn install'
-      - name: install wrangler
-        run: 'yarn add @cloudflare/wrangler g'
       - name: deploy cloudflare
         run: 'yarn deploy'
         env:
