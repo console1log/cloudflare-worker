@@ -10,7 +10,7 @@ jobs:
       run:
         working-directory: ./edge-worker-cloudflare
     steps:
-      - uses: actions/checkout@v2.0.0
+      - uses: actions/checkout@v3
       - name: install wrangler
         run: 'yarn global add wrangler'
       - name: install dependencies
