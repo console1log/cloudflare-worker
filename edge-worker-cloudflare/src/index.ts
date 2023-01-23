@@ -25,7 +25,6 @@ export default {
 		env: Env,
 		ctx: ExecutionContext
 	): Promise<Response> {
-    console.log('123')
 		return new Response("Hello World!");
 	},
 };
