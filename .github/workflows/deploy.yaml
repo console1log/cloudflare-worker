@@ -3,25 +3,15 @@ name: Deploy site to Cloudflare Workers
 on: [push]
 
 jobs:
-  deploy-main:
+  deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./worker
+    name: Deploy
     steps:
       - uses: actions/checkout@v3
-
-      - name: Set Node.js 16.x
-        uses: actions/setup-node@v3
+      - name: Publish app
+        working-directory: ./worker
+        uses: cloudflare/wrangler-action@2.0.0
         with:
-          node-version: 16.x
+          apiToken: keg3T5RgXjyvUbds_ECMfgP29IYfNFOlC44DB3p4
+          command: publish
 
-      - name: Run install
-          uses: borales/actions-yarn@v4
-          with:
-            cmd: install
-
-      - name: Publish to Cloudflare Workers Sites
-        run: deploy
-        env:
-          CF_API_TOKEN: keg3T5RgXjyvUbds_ECMfgP29IYfNFOlC44DB3p4
