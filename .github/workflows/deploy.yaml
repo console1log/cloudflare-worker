@@ -14,7 +14,7 @@ jobs:
       - name: install dependencies
         run: 'yarn install'
       - name: install wrangler
-        run: 'yarn i @cloudflare/wrangler g'
+        run: 'yarn add @cloudflare/wrangler g'
       - name: deploy cloudflare
         run: 'yarn deploy'
         env:
