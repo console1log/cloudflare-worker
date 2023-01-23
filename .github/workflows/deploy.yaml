@@ -1,0 +1,27 @@
+name: Deploy site to Cloudflare Workers
+
+on: [push]
+
+jobs:
+  deploy-main:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./worker
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Cache yarn dependencies
+        uses: c-hive/gha-yarn-cache@v1
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - run: yarn install --frozen-lockfile
+      - run: yarn export
+
+      - name: Publish to Cloudflare Workers Sites
+        run: yarn deploy
+        env:
+          CF_API_TOKEN: keg3T5RgXjyvUbds_ECMfgP29IYfNFOlC44DB3p4
