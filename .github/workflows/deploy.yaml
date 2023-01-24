@@ -11,4 +11,4 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: 'keg3T5RgXjyvUbds_ECMfgP29IYfNFOlC44DB3p4'
-          workingDirectory: 'edge-worker-cloudflare'
+          command: wrangler publish
