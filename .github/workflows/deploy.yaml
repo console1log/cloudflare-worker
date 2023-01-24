@@ -1,19 +1,17 @@
-name: Deploy site to Cloudflare Workers
+name: Deploy
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    name: Deploy Cloudflare Worker
-    defaults:
-      run:
-        working-directory: ./edge-worker-cloudflare
+    name: Deploy
     steps:
-      - uses: actions/checkout@v3
-      - name: install dependencies
-        run: 'yarn install'
-      - name: Publish app
+      - uses: actions/checkout@v2
+      - name: Publish
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: 'keg3T5RgXjyvUbds_ECMfgP29IYfNFOlC44DB3p4'
