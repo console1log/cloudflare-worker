@@ -13,9 +13,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: install dependencies
         run: 'yarn install'
-      - name: install wrangler
-        run: 'yarn global add wrangler'
-      - name: deploy cloudflare
-        run: 'yarn deploy'
-        env:
-          CLOUDFLARE_API_TOKEN: 'keg3T5RgXjyvUbds_ECMfgP29IYfNFOlC44DB3p4'
+      - name: Publish app
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+        apiToken: 'keg3T5RgXjyvUbds_ECMfgP29IYfNFOlC44DB3p4'
