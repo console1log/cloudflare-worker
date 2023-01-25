@@ -12,5 +12,9 @@
     "start": "wrangler dev",
     "deploy": "wrangler publish",
     "test": "vitest"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.191",
+    "lodash": "^4.17.21"
   }
 }

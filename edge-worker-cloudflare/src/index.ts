@@ -1,3 +1,5 @@
+import * as _ from 'lodash'
+
 /**
  * Welcome to Cloudflare Workers! This is your first worker.
  *
@@ -25,6 +27,7 @@ export default {
 		env: Env,
 		ctx: ExecutionContext
 	): Promise<Response> {
+    _.defaults({ 'a': 1 }, { 'a': 3, 'b': 2 })
 		return new Response("Hello World! HIIII!!!");
 	},
 };
